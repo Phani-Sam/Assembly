@@ -1,0 +1,20 @@
+ORG 0000H
+	BACK: MOV P2,#00H
+		  SETB P2.0
+		  LCALL DELAY
+		  CLR P2.0
+		  LCALL DELAY
+		  
+		  SJMP BACK
+	 
+		   
+	DELAY: MOV R1,#0F8H
+	AGAIN1:MOV R2,#0FFH
+	CHECK: DJNZ R2, CHECK
+		   DJNZ R1, AGAIN1
+		   
+		   RET
+	
+	
+END
+		
